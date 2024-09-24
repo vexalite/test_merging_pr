@@ -1,0 +1,27 @@
+name: Lint PR for app_theme.json
+
+on:
+  pull_request:
+    paths:
+      - "app_theme.json"
+
+jobs:
+  lint-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Check for '#' character in app_theme.json (excluding specific keys)
+        run: |
+          filtered_content=$(jq 'del(.globalColorTheme, .gradients, .elevation .igniteTheme)' app_theme.json)
+          
+          if echo "$filtered_content" | grep -q "#"; then
+            echo "Hash (#) character found in relevant fields of app_theme.json."
+            exit 1
+          else
+            echo "No hash (#) character found in relevant fields of app_theme.json."
+          fi
+        shell: bash
