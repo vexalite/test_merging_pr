@@ -1325,6 +1325,7 @@
       "typography": "l1",
       "textAlignment": "center",
       "fontColor": {
+        "light": "#000000",
         "colorType": "T1"
       },
       "padding": {
