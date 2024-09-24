@@ -3,7 +3,7 @@ name: Lint PR for app_theme.json
 on:
   pull_request:
     paths:
-      - "app_theme.json"
+      - "app/src/main/assets/app_theme.json"
 
 jobs:
   lint-changes:
