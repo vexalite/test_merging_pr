@@ -1324,6 +1324,7 @@
     "width": "-1",
     "typography": "l1",
     "textAlignment": "center",
+    "color": "161617",
     "fontColor": {
       "colorType": "T1"
     },
